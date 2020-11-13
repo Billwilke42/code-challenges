@@ -25,3 +25,56 @@ function likes(names) {
   }
 }
 
+// Multiplication Table
+
+multiplicationTable = function(size) {
+  let incrementer = 1
+  let counter = 1;
+  let arr = [];
+  let arr2 = []
+  for (var i = 1; i <= size * size; i++) {
+   if (incrementer <= size * size) {
+     arr.push(incrementer)
+     incrementer = incrementer + counter
+     if (arr.length === size) {
+       arr2.push(arr)
+       arr = []
+       counter++
+       incrementer = counter
+     }
+   }
+  }
+  return arr2
+}
+
+//Stray numbers 
+
+function stray(numbers) {
+  let arr1=[]
+  let arr2=[]
+  for(var i = 0; i < numbers.length; i++) {
+    if(i === 0) {
+      arr1.push(numbers[i])
+    } else if (i > 0 && arr1.includes(numbers[i])) {
+      arr1.push(numbers[i])
+    } else {
+      arr2.push(numbers[i])
+    }
+  }
+  if(arr2.length === 1) {
+    return arr2[0]
+  } else {
+    return arr1[0]
+  }
+}
+
+// Reverse Words
+
+function reverseWords(str) {
+  let arr = str.split(' ');
+  
+  return arr.map(word => {
+    return word.split('').reverse().join('');
+  }).join(' ');
+}
+
